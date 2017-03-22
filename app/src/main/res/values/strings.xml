@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Messenger</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="auth_failed">Could not log in</string>
+    <string name="empty_email_error">Email must not be empty!</string>
+    <string name="empty_password_error">Password must not be empty!</string>
+    <string name="password_mismatch_error">Password and Retype password must match!</string>
+    <string name="create_account_failed">Creating account failed!</string>
+    <string name="message">Message</string>
+    <string name="send">Send</string>
+</resources>
