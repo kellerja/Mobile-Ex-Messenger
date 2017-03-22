@@ -265,6 +265,9 @@ public class ChatActivity extends AppCompatActivity {
     }
 
     private void sendMessage(String message) {
+        if (message.isEmpty() && messageType != Message.IMAGE) {
+            return;
+        }
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String userIdentifier = user != null ? user.getUid() : "";
         Message messageContainer = new Message(userIdentifier, message);
