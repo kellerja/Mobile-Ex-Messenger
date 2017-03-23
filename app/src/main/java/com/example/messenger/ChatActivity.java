@@ -16,6 +16,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -93,10 +94,10 @@ public class ChatActivity extends AppCompatActivity {
 
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
-            topicRef.orderByChild("name").equalTo(topic).addListenerForSingleValueEvent(new ValueEventListener() {
+            database.getReference("topics").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
-                    if (dataSnapshot.getKey() == null) {
+                    if (dataSnapshot.getKey() == null || !dataSnapshot.hasChild(topic)) {
                         database.getReference("topics/default/users/" + user.getUid()).setValue(1);
                         database.getReference("topics/default/activeUsers/" + user.getUid()).setValue(1);
                     } else {
@@ -289,11 +290,11 @@ public class ChatActivity extends AppCompatActivity {
     }
 
     private void changeTopicPriorityBy(final int value) {
-        topicRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        database.getReference("topic").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Topic topic = dataSnapshot.getValue(Topic.class);
-                if (topic != null && topic.getUserUid() != null && topic.getPriority() + value > 0) {
+                if (topic != null && topic.getUserUid() != null && topic.getPriority() + value > 0 && dataSnapshot.hasChild(topic.getName())) {
                     topicRef.child("priority").setValue(topic.getPriority() + value);
                 }
             }
