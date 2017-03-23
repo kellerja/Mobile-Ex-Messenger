@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
+import com.example.messenger.helper.DefaultValues;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -63,9 +64,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private Class<?> getLastView() {
-        SharedPreferences prefs = getSharedPreferences("lastView", MODE_PRIVATE);
-        String lastView = prefs.getString("lastView", "");
-        Log.w("!!!!", lastView + " ");
+        SharedPreferences prefs = getSharedPreferences(DefaultValues.SHARED_PREFERENCES_LAST_VIEW, MODE_PRIVATE);
+        String lastView = prefs.getString(DefaultValues.SHARED_PREFERENCES_LAST_VIEW, "");
         switch (lastView) {
             case "ChatActivity":
                 return ChatActivity.class;

@@ -8,8 +8,6 @@ import android.support.annotation.NonNull;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -107,12 +105,6 @@ public class MessageView extends LinearLayout {
         }
 
         addView(messageHolder);
-    }
-
-    @Override
-    protected void onAnimationEnd() {
-        super.onAnimationEnd();
-        setVisibility(GONE);
     }
 
     private void setMessageView() {

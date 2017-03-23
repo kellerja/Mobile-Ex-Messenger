@@ -37,7 +37,7 @@
                 android:layout_weight="1"
                 android:background="@android:color/holo_blue_bright"
                 android:onClick="changeToMessageSending"
-                android:text="Cancel"
+                android:text="@string/cancel"
                 android:visibility="gone" />
 
             <EditText
@@ -58,7 +58,7 @@
             android:textColor="@android:color/white"
             android:background="@android:color/holo_blue_dark"
             android:onClick="changeToImageSending"
-            android:text="Image" />
+            android:text="@string/image" />
 
         <Button
             android:id="@+id/chat_send_button"

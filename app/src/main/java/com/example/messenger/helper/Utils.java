@@ -3,8 +3,6 @@ package com.example.messenger.helper;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.util.Log;
 import android.util.TypedValue;
 
 import com.google.firebase.auth.FirebaseUser;
@@ -31,9 +29,9 @@ public class Utils {
     }
 
     public static void markAsLastView(Activity activity) {
-        SharedPreferences prefs = activity.getSharedPreferences("lastView", MODE_PRIVATE);
+        SharedPreferences prefs = activity.getSharedPreferences(DefaultValues.SHARED_PREFERENCES_LAST_VIEW, MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
-        editor.putString("lastView", activity.getClass().getSimpleName());
+        editor.putString(DefaultValues.SHARED_PREFERENCES_LAST_VIEW, activity.getClass().getSimpleName());
         editor.apply();
     }
 }

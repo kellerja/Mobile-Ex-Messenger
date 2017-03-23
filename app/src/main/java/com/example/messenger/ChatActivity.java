@@ -7,22 +7,16 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.SystemClock;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -31,6 +25,7 @@ import android.widget.ScrollView;
 
 import com.example.messenger.database.Message;
 import com.example.messenger.database.Topic;
+import com.example.messenger.helper.DefaultValues;
 import com.example.messenger.helper.Utils;
 import com.example.messenger.view.MessageView;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -46,9 +41,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.io.ByteArrayOutputStream;
-import java.util.Iterator;
 import java.util.Random;
-import java.util.TimerTask;
 import java.util.concurrent.atomic.AtomicLong;
 
 
@@ -220,7 +213,7 @@ public class ChatActivity extends AppCompatActivity {
         SharedPreferences preferences = getPreferences(MODE_PRIVATE);
         String topic = preferences.getString("topicName", "default");
         if (intent != null && intent.getExtras() != null && intent.getExtras().getString("topic") != null) {
-            topic = intent.getExtras().getString("topic");
+            topic = intent.getExtras().getString(DefaultValues.TOPIC_NAME_FOR_INTENT);
         }
         return topic;
     }

@@ -1,11 +1,10 @@
 package com.example.messenger.database;
 
+import com.example.messenger.helper.DefaultValues;
 import com.google.firebase.database.Exclude;
-import com.google.firebase.database.IgnoreExtraProperties;
 import com.google.firebase.database.ServerValue;
 
 import java.util.Map;
-import java.util.Random;
 
 public class Topic {
 
@@ -24,8 +23,8 @@ public class Topic {
     public Topic(String name, String userUid) {
         this.name = name;
         this.userUid = userUid;
-        image = "images/topic/" + name + "/" + name + ".jpg";
-        priority = 100;
+        image = DefaultValues.TOPIC_IMAGES_BASE_ADDRESS + name + "/" + name + ".jpg";
+        priority = DefaultValues.NEW_TOPIC_PRIORITY;
     }
 
     public String getName() {

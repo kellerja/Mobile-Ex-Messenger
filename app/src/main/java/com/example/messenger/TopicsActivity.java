@@ -1,7 +1,6 @@
 package com.example.messenger;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -11,6 +10,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import com.example.messenger.database.Topic;
+import com.example.messenger.helper.DefaultValues;
 import com.example.messenger.helper.Utils;
 import com.example.messenger.view.TopicView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -128,7 +128,7 @@ public class TopicsActivity extends AppCompatActivity {
 
     private void openChatWithTopic(Topic topic) {
         Intent intent = new Intent(this, ChatActivity.class);
-        intent.putExtra("topic", topic.getName());
+        intent.putExtra(DefaultValues.TOPIC_NAME_FOR_INTENT, topic.getName());
         startActivity(intent);
     }
 

@@ -2,7 +2,6 @@ package com.example.messenger;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -21,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.messenger.database.Topic;
+import com.example.messenger.helper.DefaultValues;
 import com.example.messenger.helper.Utils;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -69,7 +69,7 @@ public class CreateTopicActivity extends AppCompatActivity {
                 topicNameField.getText().toString(),
                 user != null ? user.getUid() : ""
         );
-        topic.setMessageSaveDuration((long) 120000);
+        topic.setMessageSaveDuration(DefaultValues.NEW_MESSAGE_DISPLAY_DURATION_IN_MILLIS);
         if (isTopicAcceptable(topic)) {
             addOrJoin(topic);
         } else {

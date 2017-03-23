@@ -9,4 +9,27 @@
     <string name="create_account_failed">Creating account failed!</string>
     <string name="message">Message</string>
     <string name="send">Send</string>
+    <string name="cancel">Cancel</string>
+    <string name="image">Image</string>
+    <string name="new_topic_message">Create new Topic</string>
+    <string name="create">Create</string>
+    <string name="add_an_image">Add an image</string>
+    <string name="topic_name_input_field">Topic name</string>
+    <string name="old_password_input_field">Old Password</string>
+    <string name="old_password_message_field">Old password: </string>
+    <string name="password_again_input_field">Password Again</string>
+    <string name="retype_password_message">Retype Password: </string>
+    <string name="edit_password_button">Edit Password</string>
+    <string name="password_input_field">Password</string>
+    <string name="password_message_hint">***********</string>
+    <string name="edit">Edit</string>
+    <string name="save">Save</string>
+    <string name="profile_image_description">profile image</string>
+    <string name="display_name_message">Display Name:</string>
+    <string name="email_message">Email: </string>
+    <string name="email_placeholder">email placeholder</string>
+    <string name="password_message">Password: </string>
+    <string name="display_name_hint">Display Name</string>
+    <string name="display_name_placeholder">display name placeholder</string>
+    <string name="log_out">Log out</string>
 </resources>
